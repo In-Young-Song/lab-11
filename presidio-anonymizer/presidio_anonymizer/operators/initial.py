@@ -39,3 +39,4 @@ class Initial(Operator):
 
     def validate(self, params: dict = None):
         pass
+        
