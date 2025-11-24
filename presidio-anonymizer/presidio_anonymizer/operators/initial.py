@@ -6,10 +6,11 @@ class Initial(Operator):
         if not text:
             return ""
 
-        # Split full name into words (first, last, etc.)
-        parts = text.split()
+        # Remove leading/trailing/multiple spaces between words
+        # Split manually and discard empty segments
+        parts = [p for p in text.split(" ") if p.strip()]
 
-        # Create initials and format like: "J. S."
+        # Create initials: "E. M. U."
         initials = [p[0].upper() + "." for p in parts]
         return " ".join(initials)
 
@@ -21,4 +22,3 @@ class Initial(Operator):
 
     def validate(self, params: dict = None):
         pass
-
