@@ -16,12 +16,14 @@ from presidio_anonymizer.operators import (
     OperatorType,
     Redact,
     Replace,
+    Initial, # <-- NEW IMPORT: Make sure you add 'Initial' to your imports!
 )
 
 logger = logging.getLogger("presidio-anonymizer")
 
 # Predefined operators
-ANONYMIZERS = [Custom, Encrypt, Hash, Keep, Mask, Redact, Replace]
+# ADD 'Initial' TO THIS LIST
+ANONYMIZERS = [Custom, Encrypt, Hash, Keep, Mask, Redact, Replace, Initial] # <-- ADD INITIAL HERE
 if AHDS_AVAILABLE and AHDSSurrogate:
     ANONYMIZERS.append(AHDSSurrogate)
 
