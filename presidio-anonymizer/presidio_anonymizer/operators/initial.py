@@ -5,7 +5,13 @@ class Initial(Operator):
     def operate(self, text: str, params: dict = None) -> str:
         if not text:
             return ""
-        return text[0]
+
+        # Split full name into words (first, last, etc.)
+        parts = text.split()
+
+        # Create initials and format like: "J. S."
+        initials = [p[0].upper() + "." for p in parts]
+        return " ".join(initials)
 
     def operator_name(self) -> str:
         return "initial"
@@ -14,5 +20,5 @@ class Initial(Operator):
         return OperatorType.Anonymize
 
     def validate(self, params: dict = None):
-        # No parameters required — always valid
         pass
+
